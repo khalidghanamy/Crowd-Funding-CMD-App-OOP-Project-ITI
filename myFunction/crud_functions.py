@@ -57,7 +57,7 @@ def view_all_projects(logged_user):
                 title = data["title"]
                 project_id = data["project_id"]
                 print(f"{counter}- title is {title} and id = {project_id} .")
-            
+        return counter
 def clear_file():
     file_path = f"D:\\41\\day02\\day02_lab\\my_database\\projects.txt"
 
@@ -121,13 +121,13 @@ def search_project(logged_user,title):
             print("not found")
     
 def project_id_generator():
-    my_project = view_all_projects()
     
-    projects_number= my_project.split("owner_email")
-    if len(projects_number):
-        return len(projects_number)-1
+    my_project = view_all_projects()
+    if my_project:
+        return my_project +1
     else:
         return 0
+  
 
 def edite(logged_user,id,title="",details="",total_target="",start_time="",end_time=""):
     file_path = f"D:\\41\\day02\\day02_lab\\my_database\\projects.txt"
