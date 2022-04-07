@@ -121,12 +121,15 @@ def search_project(logged_user,title):
             print("not found")
     
 def project_id_generator():
-    
-    my_project = view_all_projects()
-    if my_project:
-        return my_project +1
-    else:
-        return 0
+    file_path = f"D:\\41\\day02\\day02_lab\\my_database\\projects.txt"
+
+    with open(file_path,"r+") as file:
+        my_project = file.readlines()
+        counter =0
+        file.seek(0)
+        for line in my_project:
+            counter += 1
+    return counter
   
 
 def edite(logged_user,id,title="",details="",total_target="",start_time="",end_time=""):
