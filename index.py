@@ -25,7 +25,6 @@ def main_page():
     while True:
 
         print(main_page_menu)
-        form_input = ["1", "2","3"]
         form = input("select from list : ")
         if form == "1":
             authourized = login()

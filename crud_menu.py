@@ -16,7 +16,7 @@ CRUD MENU
 """
 
 
-def crud_minu(logged_user,project_id):
+def crud_minu(logged_user):
     
     minu = ["1", "2", "3", "4", "5", "6"]
     while True:
@@ -31,9 +31,12 @@ def crud_minu(logged_user,project_id):
                 create_project(logged_user)
             if res == "3":
                 clear_file()
-                data = edite_menu()                
-                edite(logged_user,project_id,data[0],data[1],data[2],data[3],data[4])
-                clear_file()
+                projects_number=view_all_projects(logged_user)
+                project_id = input("enter project id to edirte it : ")
+                if project_id <= projects_number and project_id >0:
+                    data = edite_menu()                
+                    edite(logged_user,project_id,data[0],data[1],data[2],data[3],data[4])
+                    clear_file()
             if res == "4":
                 
                 view_all_projects(logged_user)
@@ -51,4 +54,3 @@ def crud_minu(logged_user,project_id):
     return 1
 
 
-crud_minu("kh@kh.cc","1")
